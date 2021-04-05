@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Experiments</title>
+  </head>
+    <body>
+      <h1>Experiments:</h1>
+      {% if experiments %}
+      <ul>
+        {% for experiment in experiments %}
+        <li><a href="{% url 'content:experiment_detail' experiment.id %}">{{experiment.experiment_name}}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p> No experiments </p>
+
+      {% endif %}
+
+    </body>
+
+
+</html>

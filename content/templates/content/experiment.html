@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Experiment</title>
+  </head>
+    <body>
+      {% if content_list %}
+      <ul>
+        {% for content in content_list %}
+        <li><a>{{content.case_id}} | {{content.content_text |truncatewords_html:5}}...</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p> No content for experiment </p>
+
+      {% endif %}
+
+    </body>
+
+
+</html>
