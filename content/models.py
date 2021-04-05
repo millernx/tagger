@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Experiment(models.Model):
@@ -17,6 +18,7 @@ class Content(models.Model):
         return self.content_text
 
 class Vote(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     content = models.ForeignKey(Content, on_delete=models.CASCADE)
     value = models.BooleanField(verbose_name='confirms or not confirms')
 

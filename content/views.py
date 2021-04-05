@@ -18,6 +18,8 @@ def experiment(request, experiment_id):
     context = {'content_list': contents}
     return render(request, 'content/experiment.html', context)
 
+#def label(request):
+    #contents = 
 #def content(request, content_id):
     #return HttpResponse("You're viewing content number %s" % content_id)
 
