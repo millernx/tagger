@@ -5,18 +5,19 @@
     <title>Experiment</title>
   </head>
     <body>
-      {% if content_list %}
-      <ul>
-        {% for content in content_list %}
-        <li><a>{{content.case_id}} | {{content.content_text |truncatewords_html:5}}...</a></li>
-        {% endfor %}
-      </ul>
-      {% else %}
-        <p> No content for experiment </p>
-
-      {% endif %}
+      <h3>Mensaje del usuario:</h3>
+      <p class="bubble">{{content.content_text}}</p>
+      <form action="{% url 'content:vote' content.id %}" method="post">
+        {% csrf_token %}
+        <label for="choice_yes">Si</label>
+        <input type="radio" label="choice_yes" name="vote" value="yes">
+        <label for="choice_no">No</label>
+        <input type="radio" label="choice_no" name="vote" value="no">
+        <input type="submit" value="Votar" >
+        </form>
 
     </body>
 
+                        
 
 </html>
